@@ -1,0 +1,13 @@
+git
+
+1. Check What Changed : git status
+2. Stage the Changes : git add .
+3. Commit the Changes(Write a meaningful message:) : git commit -m "Update dot colors and animations"
+4. Push to GitHub (main branch) : git push
+5. Redeploy to GitHub Pages : npm run deploy
+
+
+git add .
+git commit -m "Describe your change"
+git push
+npm run deploy

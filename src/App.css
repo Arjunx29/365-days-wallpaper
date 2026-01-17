@@ -92,3 +92,114 @@ html, body {
   grid-column: 1 / -1;
   height: 6px;
 }
+
+
+.dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 2px; /* Slightly rounded edges, NOT circle */
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+/* .dot.past {
+  background: none;
+  border: 2px dashed white; 
+} */
+
+
+.dot.past {
+  background: #eaeaea;
+  border-radius: 2px;
+  position: relative;
+  overflow: hidden;
+  animation: ashFade 1.2s ease forwards;
+}
+.dot.past::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: 
+    radial-gradient(circle at 20% 30%, rgba(0,0,0,0.15) 0%, transparent 40%),
+    radial-gradient(circle at 70% 60%, rgba(0,0,0,0.12) 0%, transparent 45%),
+    radial-gradient(circle at 40% 80%, rgba(0,0,0,0.1) 0%, transparent 50%);
+  opacity: 0;
+  animation: ashDust 1.2s ease forwards;
+}
+.dot.past::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    120deg,
+    transparent 30%,
+    rgba(0,0,0,0.35) 50%,
+    transparent 70%
+  );
+  transform: translateX(-120%);
+  animation: ashWipe 1.2s ease forwards;
+}
+@keyframes ashFade {
+  0% {
+    opacity: 1;
+    transform: scale(1);
+    background: #ffffff;
+  }
+  50% {
+    background: #bdbdbd;
+  }
+  100% {
+    opacity: 0.35;
+    background: #7a7a7a;
+  }
+}
+
+@keyframes ashDust {
+  40% {
+    opacity: 0.3;
+  }
+  100% {
+    opacity: 0.6;
+  }
+}
+
+@keyframes ashWipe {
+  0% {
+    transform: translateX(-120%);
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.4;
+  }
+  100% {
+    transform: translateX(120%);
+    opacity: 0;
+  }
+}
+
+
+
+
+
+.dot.today {
+  background-color: #ff3b30;
+  border: none;
+  transform: scale(1.2);
+  box-shadow: 0 0 12px #ff3b30;
+}
+.dot.future {
+  background-color: #555;
+  border: none;
+}
+.dot.past {
+  animation: fadeBroken 0.8s ease forwards;
+}
+
+@keyframes fadeBroken {
+  from {
+    opacity: 0.4;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
