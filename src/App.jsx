@@ -9,18 +9,32 @@ function App() {
     return () => clearInterval(interval);
   }, []);
 
-  const days = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
+  const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
   const months = [
-    "January","February","March","April","May","June",
-    "July","August","September","October","November","December"
+    "January", "February", "March", "April", "May", "June",
+    "July", "August", "September", "October", "November", "December"
   ];
 
   const dayName = days[time.getDay()];
   const day = time.getDate();
   const month = months[time.getMonth()];
   const year = time.getFullYear();
+  const [is24Hour, setIs24Hour] = useState(() => {
+    return localStorage.getItem("timeFormat") === "24";
+  });
 
-  const formattedTime = time.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
+  // const formattedTime = time.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
+
+  const formattedTime = time.toLocaleTimeString("en-US", {
+  hour: "2-digit",
+  minute: "2-digit",
+  hour12: !is24Hour,
+});
+const toggleFormat = () => {
+  const newFormat = !is24Hour;
+  setIs24Hour(newFormat);
+  localStorage.setItem("timeFormat", newFormat ? "24" : "12");
+};
 
   // Calculate today's day number of year
   const start = new Date(time.getFullYear(), 0, 0);
@@ -53,6 +67,7 @@ function App() {
       <div className="top-section">
         <div className="date-text">{dayName} {day} {month}</div>
         <div className="time-text">{formattedTime}</div>
+        
       </div>
 
       <div className="dots-container">
@@ -78,6 +93,20 @@ function App() {
           );
         })}
       </div>
+          <div className="toggle-container">
+  <label className="switch">
+    <input 
+      type="checkbox" 
+      checked={is24Hour}
+      onChange={toggleFormat}
+    />
+    <span className="slider"></span>
+  </label>
+
+  <span className="toggle-label">
+    {is24Hour ? "24-Hour" : "12-Hour"}
+  </span>
+</div>
     </div>
   );
 }

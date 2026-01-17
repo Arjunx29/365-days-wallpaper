@@ -203,3 +203,64 @@ html, body {
     transform: scale(1);
   }
 }
+/* Toggle container */
+.toggle-container {
+  margin-top: 15px;
+  margin-left :50px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Slider switch wrapper */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 48px;
+  height: 26px;
+}
+
+/* Hide checkbox */
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* Background track */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  inset: 0;
+  background-color: #555;
+  border-radius: 26px;
+  transition: .4s;
+}
+
+/* Knob */
+.slider::before {
+  content: "";
+  position: absolute;
+  height: 20px;
+  width: 20px;
+  left: 3px;
+  bottom: 3px;
+  background-color: white;
+  border-radius: 50%;
+  transition: .4s;
+}
+
+/* When checked (24-hour) */
+.switch input:checked + .slider {
+  background-color: #ff3b30; /* red highlight */
+}
+
+.switch input:checked + .slider:before {
+  transform: translateX(22px);
+}
+
+/* Label next to slider */
+.toggle-label {
+  font-size: 13px;
+  opacity: 0.8;
+}
