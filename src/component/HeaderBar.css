@@ -1,0 +1,54 @@
+/* ================= HEADER ================= */
+
+.header-bar {
+  height: 60px;
+  padding: 0 20px;
+  background: var(--bg-panel);
+  color: var(--text-main);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid rgba(0,0,0,0.08);
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+/* LEFT */
+.header-title {
+  font-size: 30px;
+  font-weight: 600;
+  cursor: pointer;
+  user-select: none;
+}
+
+.title-input {
+  font-size: 20px;
+  font-weight: 600;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: var(--text-main);
+  border-bottom: 2px solid var(--text-muted);
+  width: 200px;
+}
+
+/* RIGHT — TOGGLE */
+.theme-toggle {
+  padding: 8px 14px;
+  border-radius: 20px;
+  border: none;
+  cursor: pointer;
+
+  background: var(--bg-panel);
+  color: var(--text-main);
+  font-size: 13px;
+
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+/* MOBILE */
+@media (max-width: 600px) {
+  .header-title,
+  .title-input {
+    font-size: 17px;
+  }
+}

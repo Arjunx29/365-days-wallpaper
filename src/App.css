@@ -1,247 +1,34 @@
-/* ---------------------------------------------------
-   GLOBAL RESET & WALLPAPER BACKGROUND
----------------------------------------------------- */
-html, body {
-  height: 100%;
-  width: 100%;
+/* RESET */
+* {
   margin: 0;
   padding: 0;
-  background: #000;        /* Pure black */
-  overflow: hidden;        /* Prevents white overscroll */
-  font-family: system-ui, sans-serif;
-}
-
-
-/* ---------------------------------------------------
-   APP LAYOUT
----------------------------------------------------- */
-.app {
-  background-color: #000;
-  color: white;
-  height: 100vh;
-  width: 100vw;
-  overflow-y: auto;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding-bottom: 40px;
   box-sizing: border-box;
 }
 
-
-/* ---------------------------------------------------
-   TOP SECTION (DATE, TIME, QUOTE)
----------------------------------------------------- */
-.top-section {
-  margin-top: 20px;
-  text-align: center;
-  margin-bottom: 15px;
+/* GLOBAL FONTS */
+body {
+  font-family: "Inter", "Segoe UI", Arial, sans-serif;
+  background: #ececec;
+  color: #1a1a1a;
+  /* overflow: hidden; */
 }
 
-.date-text {
-  font-size: 18px;
-  opacity: 0.7;
+/* ROOT WRAPPER */
+/* .app-root {
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+} */
+
+/* SCROLLBAR BEAUTIFICATION */
+::-webkit-scrollbar {
+  width: 3px;
 }
-
-.time-text {
-  font-size: 70px;
-  font-weight: 600;
-  margin-top: 5px;
-  letter-spacing: 1px;
+::-webkit-scrollbar-thumb {
+  background: #999;
+  border-radius: 1px;
 }
-
-/* Quote section */
-.quote-section {
-  margin-top: 10px;
-  max-width: 100%;
-}
-
-.quote-text {
-  font-size: 16px;
-  font-style: italic;
-  color: #ccc;
-  opacity: 0.9;
-  animation: quoteFade 0.6s ease-in-out;
-  line-height: 1.4;
-}
-
-@keyframes quoteFade {
-  from {
-    opacity: 0;
-    transform: translateY(4px);
-  }
-  to {
-    opacity: 0.95;
-    transform: translateY(0);
-  }
-}
-
-
-/* ---------------------------------------------------
-   DOT GRID
----------------------------------------------------- */
-.dots-container {
-  display: grid;
-  grid-template-columns: repeat(16, 14px);  /* Larger squares for better clarity */
-  gap: 10px;
-  margin-top: 25px;
-  justify-content: center;
-}
-
-.dot-wrapper {
-  position: relative;
-}
-
-/* Tooltip */
-.dot:hover::after {
-  content: attr(data-tooltip);
-  position: absolute;
-  top: -32px;
-  left: -40px;
-  white-space: nowrap;
-  background: rgba(0, 0, 0, 0.95);
-  padding: 4px 8px;
-  border-radius: 6px;
-  font-size: 11px;
-  color: white;
-  opacity: 1;
-  z-index: 100;
-}
-
-/* Month break separator */
-.month-separator {
-  grid-column: 1 / -1;
-  height: 8px;
-}
-
-
-/* ---------------------------------------------------
-   DOT STYLES
----------------------------------------------------- */
-.dot {
-  width: 12px;
-  height: 12px;
-  border-radius: 3px;
-  transition: background 0.3s ease, transform 0.3s ease, opacity 0.3s ease;
-}
-
-/* Past days: broken dashed squares */
-.dot.past {
-  background: #e0e0e0;
-  border: 2px dashed #000000;
-  animation: pastFade 0.7s ease forwards;
-}
-
-@keyframes pastFade {
-  from {
-    opacity: 0.4;
-    transform: scale(0.85);
-  }
-  to {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
-
-/* Today: red square with glow */
-.dot.today {
-  background-color: #ff3b30;
-  border: none;
-  transform: scale(1.25);
-  box-shadow: 0 0 14px #ff3b30;
-}
-
-/* Future: dim grey */
-.dot.future {
-  background-color: #555;
-  border: none;
-}
-
-
-/* ---------------------------------------------------
-   TIME FORMAT TOGGLE
----------------------------------------------------- */
-.toggle-container {
-  margin-top: 25px;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.switch {
-  position: relative;
-  display: inline-block;
-  width: 48px;
-  height: 26px;
-}
-
-.switch input {
-  opacity: 0;
-  width: 0;
-  height: 0;
-}
-
-.slider {
-  position: absolute;
-  cursor: pointer;
-  inset: 0;
-  background-color: #444;
-  border-radius: 26px;
-  transition: 0.4s;
-}
-
-.slider::before {
-  content: "";
-  position: absolute;
-  height: 20px;
-  width: 20px;
-  left: 3px;
-  bottom: 3px;
-  background-color: white;
-  border-radius: 50%;
-  transition: 0.4s;
-}
-
-.switch input:checked + .slider {
-  background-color: #ff3b30;
-}
-
-.switch input:checked + .slider::before {
-  transform: translateX(22px);
-}
-
-.toggle-label {
-  font-size: 13px;
-  opacity: 0.8;
-}
-
-
-/* ---------------------------------------------------
-   RESPONSIVENESS
----------------------------------------------------- */
-@media (max-width: 600px) {
-  .time-text {
-    font-size: 48px;
-  }
-  .dot {
-    width: 10px;
-    height: 10px;
-  }
-  .dots-container {
-    grid-template-columns: repeat(12, 12px);
-    gap: 8px;
-  }
-  .quote-text {
-    font-size: 14px;
-  }
-}
-
-@media (max-width: 400px) {
-  .time-text {
-    font-size: 40px;
-  }
-  .dots-container {
-    grid-template-columns: repeat(10, 10px);
-    gap: 6px;
-  }
+::-webkit-scrollbar-track {
+  background: transparent;
+  background-color: black;
 }
