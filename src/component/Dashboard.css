@@ -602,25 +602,49 @@
 }
 
 /* ===============================
+   PENDING TASKS PANEL
+================================ */
+
+.pending-container {
+  max-width: 420px;
+  margin: 0 auto;
+  padding: 22px 20px;
+  border-radius: 14px;
+  background: var(--bg-panel);
+  color: var(--text-main);
+  transition: background 0.25s ease, color 0.25s ease;
+}
+
+/* ===============================
    HEADER (ADD + TITLE + RESET)
 ================================ */
 
 .pending-header {
-  display: grid;
-  grid-template-columns: 32px 1fr 32px;
+  position: relative;
+  display: flex;
   align-items: center;
+  justify-content: space-between;
   margin-bottom: 18px;
 }
 
-.pending-header h2 {
-  text-align: center;
-  font-size: 15px;
-  font-weight: 500;
-  margin: 0;
+/* CENTER HEADING */
+.pending-heading {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+ font-size: 25px;
+  font-weight: 700;
   letter-spacing: 0.3px;
+  margin: 0;
+  line-height: 1.1;
+  white-space: nowrap;
+  color: var(--text-main);
 }
 
-/* icons */
+/* ===============================
+   ICON BUTTONS
+================================ */
+
 .pending-icon {
   background: transparent;
   border: none;
@@ -636,16 +660,23 @@
   transform: scale(1.1);
 }
 
+.pending-icon:active {
+  transform: scale(0.95);
+}
+
 .pending-icon:disabled {
   opacity: 0.3;
   cursor: not-allowed;
 }
 
 /* ===============================
-   TASK LIST
+   TASK ROW
 ================================ */
 
 .pending-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
   padding: 10px 4px;
 }
 
@@ -653,8 +684,20 @@
   border-bottom: 1px solid var(--border-soft);
 }
 
+/* checkbox */
+.pending-item input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+  accent-color: var(--accent);
+}
+
+/* ===============================
+   INPUT
+================================ */
+
 .pending-input {
-  width: 100%;
+  flex: 1;
   font-size: 14px;
   border: none;
   outline: none;
@@ -667,7 +710,17 @@
   color: var(--text-muted);
 }
 
-/* empty state */
+/* completed task */
+.pending-input.done {
+  text-decoration: line-through;
+  color: var(--text-muted);
+  opacity: 0.6;
+}
+
+/* ===============================
+   EMPTY STATE
+================================ */
+
 .pending-empty {
   text-align: center;
   font-size: 13px;

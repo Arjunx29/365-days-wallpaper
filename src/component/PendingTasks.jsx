@@ -5,7 +5,9 @@ const MAX_TASKS = 5;
 
 const PendingTasks = () => {
   const [tasks, setTasks] = useState(() => {
-    return JSON.parse(localStorage.getItem("pending-tasks")) || [];
+    return (
+      JSON.parse(localStorage.getItem("pending-tasks")) || []
+    );
   });
 
   const saveTasks = (newTasks) => {
@@ -15,12 +17,12 @@ const PendingTasks = () => {
 
   const addTask = () => {
     if (tasks.length >= MAX_TASKS) return;
-    saveTasks([...tasks, ""]);
+    saveTasks([...tasks, { text: "", done: false }]);
   };
 
-  const updateTask = (index, value) => {
+  const updateTask = (index, field, value) => {
     const newTasks = [...tasks];
-    newTasks[index] = value;
+    newTasks[index] = { ...newTasks[index], [field]: value };
     saveTasks(newTasks);
   };
 
@@ -41,7 +43,7 @@ const PendingTasks = () => {
           +
         </button>
 
-        <h2>Pending Tasks</h2>
+        <h2 className="pending-heading">Pending Tasks</h2>
 
         <button
           className="pending-icon"
@@ -55,10 +57,20 @@ const PendingTasks = () => {
       {tasks.map((task, index) => (
         <div className="pending-item" key={index}>
           <input
-            className="pending-input"
+            type="checkbox"
+            checked={task.done}
+            onChange={() =>
+              updateTask(index, "done", !task.done)
+            }
+          />
+
+          <input
+            className={`pending-input ${task.done ? "done" : ""}`}
             placeholder={`Task ${index + 1}`}
-            value={task}
-            onChange={(e) => updateTask(index, e.target.value)}
+            value={task.text}
+            onChange={(e) =>
+              updateTask(index, "text", e.target.value)
+            }
           />
         </div>
       ))}
