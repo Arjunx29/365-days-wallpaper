@@ -96,7 +96,7 @@ const [showInput, setShowInput] = useState(() => {
 
       {/* Header line */}
       <div className="why-header">
-        <h2 className="timer-heading">why ?</h2>
+        <h2 className=" timer-heading why-title">Why ?</h2>
 
         {list.length > 0 && (
           <div className="why-actions">

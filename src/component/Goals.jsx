@@ -10,6 +10,21 @@ const Goals = () => {
     };
   });
 
+  const resetGoals = () => {
+    const empty = {
+      most: { text: "", done: false },
+      important: { text: "", done: false },
+      habit: { text: "", done: false }
+    };
+
+    setTasks(empty);
+
+    localStorage.removeItem("goal-most");
+    localStorage.removeItem("goal-important");
+    localStorage.removeItem("goal-habit");
+  };
+
+
   const updateTask = (key, field, value) => {
     const newData = {
       ...tasks,
@@ -24,7 +39,18 @@ const Goals = () => {
 
   return (
     <div className="goals-container">
-      <h2>Today's Goals</h2>
+      <div className="goals-header">
+  <h2>Today's Goals</h2>
+  <button
+    className="goals-reset"
+    onClick={resetGoals}
+    title="Reset goals"
+  >
+    ↺
+  </button>
+</div>
+
+
 
       <div className="goal-item">
         <input
