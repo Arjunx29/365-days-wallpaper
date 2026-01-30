@@ -54,6 +54,58 @@
   align-items: start; /* prevents empty stretched columns */
 }
 
+/* ================================
+   MOBILE LAYOUT (phones)
+================================ */
+@media (max-width: 768px) {
+  .dashboard-container {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  /* Hide wallpaper on phone */
+  .mobile-hide {
+    display: none;
+  }
+
+  /* Stack all columns */
+  .right-side-wrapper {
+    display: contents;
+  }
+
+  .right-column,
+  .center-column {
+    width: 100%;
+  }
+
+  /* ORDER PRIORITY */
+  .mobile-why {
+    order: 1;
+  }
+
+  .mobile-goal {
+    order: 2;
+  }
+
+  .mobile-pending {
+    order: 3;
+  }
+
+  .mobile-review {
+    order: 4;
+  }
+
+  .mobile-timer {
+    order: 5;
+  }
+
+  .mobile-affirm {
+    order: 6;
+  }
+}
+
+
 /* =====================================================
    PANELS
 ===================================================== */
