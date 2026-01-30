@@ -8,6 +8,8 @@ import HeaderBar from "./HeaderBar";
 import TimerPanel from "./TimerPanel";
 import WhyPanel from "./WhyPanel";
 import PendingTasks from "./PendingTasks";
+import ReviewPanel from "./ReviewPanel";
+import AffirmationPanel from "./AffirmationPanel";
 
 
 const Dashboard = () => {
@@ -31,6 +33,7 @@ const Dashboard = () => {
           <div className="center-column">
             <Goals />
           </div>
+          <div>  <ReviewPanel /></div>
         </div>
         <div className="right-side-wrapper">
           <div className="right-column">
@@ -38,6 +41,9 @@ const Dashboard = () => {
         </div>
         <div className="right-column">
           <PendingTasks />
+        </div>
+        <div className="right-column">
+          <AffirmationPanel />
         </div>
         </div>
         

@@ -1,0 +1,73 @@
+/* Container */
+.review-card {
+  width: 100%;
+  background: var(--bg-panel);
+  color: var(--text-main);
+  border: 1px solid var(--border-soft);
+  border-radius: 12px;
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* Header */
+.review-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.review-title {
+  font-size: 15px;
+  font-weight: 500;
+  margin: 0;
+}
+
+/* Reload icon */
+.review-reload {
+  position: absolute;
+  right: 0;
+  background: none;
+  border: none;
+  color: var(--text-muted);
+  font-size: 16px;
+  cursor: pointer;
+  opacity: 0.45;
+}
+
+.review-reload:hover {
+  opacity: 0.9;
+}
+
+/* Question + input block */
+.review-block {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.review-question {
+  font-size: 12px;
+  color: var(--text-muted);
+  margin: 0;
+}
+
+/* Textarea */
+.review-input {
+  width: 100%;
+  min-height: 52px;
+  background: var(--bg-main);
+  color: var(--text-main);
+  border: 1px solid var(--border-soft);
+  border-radius: 8px;
+  padding: 7px 9px;
+  font-size: 13px;
+  resize: none;
+}
+
+.review-input:focus {
+  outline: none;
+  border-color: rgba(100, 200, 100, 0.6);
+}

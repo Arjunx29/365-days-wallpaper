@@ -1,0 +1,84 @@
+/* Container */
+.affirm-card {
+  width: 100%;
+  background: var(--bg-panel);
+  color: var(--text-main);
+  /* border: 1px solid var(--border-soft); */
+  border-radius: 12px;
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* Header */
+.affirm-header {
+  display: flex;
+  justify-content: center;
+}
+
+.affirm-title {
+  font-size: 15px;
+  font-weight: 500;
+  margin: 0;
+}
+
+/* Tabs */
+.affirm-tabs {
+  display: flex;
+  gap: 4px;
+  justify-content: space-between;
+}
+.affirm-tabs {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 2 rows × 3 columns */
+  gap: 6px;
+}
+
+.affirm-tab {
+  background: var(--bg-main);
+  border: 1px solid var(--border-soft);
+  color: var(--text-muted);
+  border-radius: 8px;
+  padding: 8px 4px;
+  font-size: 12px;
+  cursor: pointer;
+
+  /* TEXT SAFETY */
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-align: center;
+}
+
+
+.affirm-tab.active {
+  color: var(--text-main);
+  border-color: rgba(100, 200, 100, 0.6);
+}
+
+.affirm-tab:hover {
+  color: var(--text-main);
+}
+
+/* List */
+.affirm-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.affirm-item {
+  display: flex;
+  gap: 6px;
+  font-size: 13px;
+  line-height: 1.4;
+  color: var(--text-muted);
+}
+
+.affirm-bullet {
+  color: var(--text-muted);
+}
