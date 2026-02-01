@@ -20,7 +20,7 @@ const Dashboard = () => {
 
       <HeaderBar />
 
-      {/* <div className="dashboard-container">
+      <div className="dashboard-container">
         <div className="left-column">
           <WallpaperApp />
         </div>
@@ -49,41 +49,7 @@ const Dashboard = () => {
         
        
 
-      </div> */}
-      <div className="dashboard-container">
-  <div className="left-column mobile-hide">
-    <WallpaperApp />
-  </div>
-
-  <div className="right-side-wrapper">
-    <div className="right-column mobile-why">
-      <WhyPanel />
-    </div>
-
-    <div className="center-column mobile-goal">
-      <Goals />
-    </div>
-
-    <div className="right-column mobile-review">
-      <ReviewPanel />
-    </div>
-  </div>
-
-  <div className="right-side-wrapper">
-    <div className="right-column mobile-timer">
-      <TimerPanel />
-    </div>
-
-    <div className="right-column mobile-pending">
-      <PendingTasks />
-    </div>
-
-    <div className="right-column mobile-affirm">
-      <AffirmationPanel />
-    </div>
-  </div>
-</div>
-
+      </div>
     </div>
   );
 };
