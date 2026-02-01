@@ -318,6 +318,38 @@
   color: var(--text-main);
 }
 
+
+/* History header container */
+.history-header {
+  position: relative;
+  text-align: center;
+  margin-top: 10px;
+}
+
+/* Centered title */
+.history-title {
+  margin: 0;
+  color: var(--text-main);
+}
+
+/* Reset icon on right corner */
+.history-reset {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+  color: var(--text-main);
+  opacity: 0.35;
+}
+
+.history-reset:hover {
+  opacity: 0.8;
+}
+
 /* ================= Presets ================= */
 
 .preset-box {
