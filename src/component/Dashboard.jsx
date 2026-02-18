@@ -10,6 +10,7 @@ import WhyPanel from "./WhyPanel";
 import PendingTasks from "./PendingTasks";
 import ReviewPanel from "./ReviewPanel";
 import AffirmationPanel from "./AffirmationPanel";
+import StreakBar from "./StreakBar";
 
 
 const Dashboard = () => {
@@ -19,6 +20,7 @@ const Dashboard = () => {
     <div className="dashboard-wrapper">
 
       <HeaderBar />
+      <StreakBar />
 
       <div className="dashboard-container">
         <div className="left-column">
@@ -40,11 +42,13 @@ const Dashboard = () => {
           <TimerPanel />
         </div>
         <div className="right-column">
-          <PendingTasks />
-        </div>
-        <div className="right-column">
           <AffirmationPanel />
         </div>
+
+        <div className="right-column">
+          <PendingTasks />
+        </div>
+       
         </div>
         
        
